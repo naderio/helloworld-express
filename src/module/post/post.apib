@@ -1,0 +1,123 @@
+
+# Group Post
+
+### Retrieve collection [GET /user/post]
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer {{ACCESS_TOKEN}}
+
++ Response 200 (application/json)
+
+        {
+            "data": [{
+                "id": "ID",
+                "title": "Title #1",
+                "body": "..."
+            }, {
+                "id": "ID",
+                "title": "Title #2",
+                "body": "..."
+            }]
+        }
+
+### Retrieve record [GET /user/post/{postId}]
+
++ Parameters
+
+    + postId: `ID` (id) - record id.
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer {{ACCESS_TOKEN}}
+
++ Response 200 (application/json)
+
+        {
+            "data": {
+                "id": "ID",
+                "title": "Title #1",
+                "body": "..."
+            }
+        }
+
+### Create post [POST /user/post/create]
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer {{ACCESS_TOKEN}}
+            Content-Type: application/json
+
+    + Body
+
+            {
+                "data": {
+                    "title": "Title #1",
+                    "body": "..."
+                }
+            }
+
++ Response 200 (application/json)
+
+        {
+            "data": {
+                "id": "ID",
+                "title": "Title #1",
+                "body": "..."
+            }
+        }
+
+### Edit post [POST /user/post/{postId}/edit]
+
++ Parameters
+
+    + postId: `ID` (id) - record id.
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer {{ACCESS_TOKEN}}
+            Content-Type: application/json
+
+    + Body
+
+            {
+                "data": {
+                    "title": "Title #1",
+                    "body": "..."
+                }
+            }
+
++ Response 200 (application/json)
+
+        {
+            "data": {
+                "id": "ID",
+                "title": "Title #1",
+                "body": "..."
+            }
+        }
+
+### Delete post [POST /user/post/{postId}/delete]
+
++ Parameters
+
+    + postId: `ID` (id) - record id.
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer {{ACCESS_TOKEN}}
+
++ Response 200 (application/json)
+
+        {
+        }

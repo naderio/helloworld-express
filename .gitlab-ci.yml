@@ -1,0 +1,78 @@
+stages:
+  - prepare
+  - lint
+  - test
+  - build
+  - deploy
+
+image: node:14
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - ./node_modules/
+
+install:
+  stage: prepare
+  tags:
+    - docker
+  script:
+    - npm install --unsafe-perm
+
+lint:
+  stage: lint
+  tags:
+    - docker
+  script:
+    - npm run lint
+
+test:unit:
+  stage: test
+  tags:
+    - docker
+  services:
+    - name: mongo:4.0
+      alias: mongo
+    - name: redis:5.0
+      alias: redis
+  script:
+    - export MONGODB_URI=mongodb://mongo:27017/Test
+    - export REDIS_STORAGE_URI=redis://redis:6379/10
+    - export REDIS_CACHE_URI=redis://redis:6379/11
+    - export REDIS_JOB_URI=redis://redis:6379/12
+    - npm run test:unit -- --coverage
+  coverage: /All\sfiles.*?\s+(\d+.\d+)/
+
+test:spec:
+  stage: test
+  tags:
+    - docker
+  services:
+    - name: mongo:4.0
+      alias: mongo
+    - name: redis:5.0
+      alias: redis
+  script:
+    - export MONGODB_URI=mongodb://mongo:27017/Test
+    - export REDIS_STORAGE_URI=redis://redis:6379/10
+    - export REDIS_CACHE_URI=redis://redis:6379/11
+    - export REDIS_JOB_URI=redis://redis:6379/12
+    - npm run test:spec
+
+build:
+  stage: build
+  image: gitlab/dind
+  services:
+    - docker:dind
+  script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+    - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG .
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+# deploy:
+#   stage: deploy
+#   only:
+#     - master
+#   tags:
+#     - deploy:helloworld
+#   script:
+#     - ./scripts/deploy.sh

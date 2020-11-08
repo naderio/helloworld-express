@@ -1,0 +1,41 @@
+
+# Group User Profile
+
+### Retrieve user account and profile [GET /self]
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer {{ACCESS_TOKEN}}
+
++ Response 200 (application/json)
+
+        {
+            "userAccount": {
+                "id": "f67ebbe0-4cc1-11e8-97ea-c16513384dd0",
+                "email": "user@helloworld.nader.tech",
+                "name": "User",
+                "pictureUrl": "https://randomuser.me/api/portraits/lego/1.jpg"
+            },
+            "userProfile": {}
+        }
+
+### Edit user account and profile [POST /self/edit]
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer {{ACCESS_TOKEN}}
+            Content-Type: application/json
+
+    + Body
+
+            {
+            }
+
++ Response 200 (application/json)
+
+        {
+        }

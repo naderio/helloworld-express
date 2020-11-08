@@ -1,0 +1,14 @@
+{
+  "source": {
+    "include": ["./src/"]
+  },
+  "opts": {
+    "recurse": true,
+    "destination": "./generated/jsdoc/"
+  },
+  "templates": {
+    "default": {
+      "useLongnameInNav": true
+    }
+  }
+}
