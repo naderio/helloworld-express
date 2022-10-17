@@ -1,6 +1,5 @@
-import * as AuthService from './AuthService';
-
 import { createLogger } from '~/common/logger';
+import * as AuthService from './AuthService';
 
 const Logger = createLogger($filepath(__filename));
 

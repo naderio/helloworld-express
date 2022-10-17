@@ -1,6 +1,5 @@
-import * as APP_CONFIG from '../../app-config';
-
 import { createLogger } from '~/common/logger';
+import * as APP_CONFIG from '../../app-config';
 
 const Logger = createLogger($filepath(__filename));
 

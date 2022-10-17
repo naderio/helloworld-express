@@ -6,9 +6,8 @@ import { GlobalEvents } from '~/common/events';
 import Data from '~/common/data';
 import Job from '~/common/job';
 
-import * as Post from './Post.model';
-
 import { createLogger } from '~/common/logger';
+import * as Post from './Post.model';
 
 const Logger = createLogger($filepath(__filename));
 

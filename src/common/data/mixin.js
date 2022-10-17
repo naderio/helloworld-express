@@ -154,14 +154,20 @@ export function association(field) {
     attributes.target = `${collection.identity}_${field}_${collection.identity}`;
   } else if (throughCollection) {
     const attributeByModel = Object.entries(throughCollection.attributes).reduce(
-      (acc, [attribute, config]) => ({ ...acc, [config.model || attribute]: attribute }),
+      (acc, [attribute, config]) => ({
+        ...acc,
+        [config.model || attribute]: attribute,
+      }),
       {},
     );
     attributes.self = attributeByModel[collection.identity];
     attributes.target = attributeByModel[targetCollection.identity];
   } else {
     const attributeByModel = Object.entries(targetCollection.attributes).reduce(
-      (acc, [attribute, config]) => ({ ...acc, [config.model || attribute]: attribute }),
+      (acc, [attribute, config]) => ({
+        ...acc,
+        [config.model || attribute]: attribute,
+      }),
       {},
     );
     attributes.self = attributeByModel[collection.identity];

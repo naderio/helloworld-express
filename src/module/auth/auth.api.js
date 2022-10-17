@@ -1,7 +1,5 @@
 import express from 'express';
 
-import { withAuthenticatedUser } from './auth.middleware';
-
 import * as CONST from '~/common/const';
 
 import * as Errors from '~/common/errors';
@@ -10,15 +8,15 @@ import * as CONFIG from '~/common/config';
 
 import * as Sanitize from '~/common/sanitize';
 
+import * as EmailJob from '~/shared/email.job';
+import * as DataUtils from '~/common/data/utils';
+import * as TransientDataStore from '~/common/TransientDataStoreService';
 import * as UserAccount from './UserAccount.model';
 import * as UserProfile from './UserProfile.model';
 
-import * as EmailJob from '~/shared/email.job';
-
 import * as AuthService from './AuthService';
 
-import * as DataUtils from '~/common/data/utils';
-import * as TransientDataStore from '~/common/TransientDataStoreService';
+import { withAuthenticatedUser } from './auth.middleware';
 
 export const prefix = '';
 

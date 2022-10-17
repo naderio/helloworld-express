@@ -1,13 +1,12 @@
 /** @module common/data */
 
+import { createLogger } from '~/common/logger';
 import DataWaterline from './waterline';
 import DataGraphql from './graphql';
 import DataRedisStorage from './redis.storage';
 import DataRedisCache from './redis.cache';
 
 import bootstrap from '../bootstrap';
-
-import { createLogger } from '~/common/logger';
 
 const Logger = createLogger($filepath(__filename));
 

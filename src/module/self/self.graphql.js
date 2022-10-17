@@ -13,7 +13,9 @@ export default () => ({
         return new graphql.GraphQLObjectType({
           name: 'UserSelf',
           fields: () => ({
-            userAccount: { type: UserAccount.collection.graphql.customTypes.OwnUserAccount },
+            userAccount: {
+              type: UserAccount.collection.graphql.customTypes.OwnUserAccount,
+            },
             userProfile: { type: UserProfile.collection.graphql.type },
           }),
         });

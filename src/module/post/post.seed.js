@@ -1,11 +1,9 @@
 import * as CONST from '~/common/const';
 
+import * as SharedUtils from '~/shared/utils';
+import { createLogger } from '~/common/logger';
 import * as UserAccount from '../auth/UserAccount.model';
 import * as Post from './Post.model';
-
-import * as SharedUtils from '~/shared/utils';
-
-import { createLogger } from '~/common/logger';
 
 const Logger = createLogger($filepath(__filename));
 

@@ -2,13 +2,12 @@
 
 import * as graphql from 'graphql';
 
+import { createLogger } from '~/common/logger';
 import DataWaterline from './waterline';
 
 import * as APP_CONFIG from '../../../app-config';
 
 import { GraphQLRaw, GraphQLJSON } from './graphql.types';
-
-import { createLogger } from '~/common/logger';
 
 const Logger = createLogger($filepath(__filename));
 

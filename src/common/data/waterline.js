@@ -11,11 +11,10 @@ import MongoAdapter from 'sails-mongo';
 
 import * as CONFIG from '~/common/config';
 
+import { createLogger } from '~/common/logger';
 import * as DataUtils from './utils';
 
 import * as APP_CONFIG from '../../../app-config';
-
-import { createLogger } from '~/common/logger';
 
 const Logger = createLogger($filepath(__filename));
 
@@ -68,7 +67,10 @@ class DataWaterline {
       },
 
       models: Object.values(this.models).reduce(
-        (acc, Model) => ({ ...acc, [Model.definition.identity]: Model.definition }),
+        (acc, Model) => ({
+          ...acc,
+          [Model.definition.identity]: Model.definition,
+        }),
         {},
       ),
 

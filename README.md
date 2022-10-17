@@ -4,7 +4,7 @@
 ![coverage report](https://gitlab.com/helloworld-nt/helloworld-express/badges/master/coverage.svg)
 ![dependencies](https://img.shields.io/david/naderio/helloworld-express.svg)
 
-A boilerplate and reference implementation for Node.js backend built with Express, Waterline, Bull, GraphQL, ...
+A boilerplate for Node.js backend built with Express, Waterline, Bull, GraphQL, ...
 
 ## Requirements
 
@@ -57,22 +57,22 @@ npm run data:seed
 ### Running Application
 
 ```sh
-# run app core, api worker, and job runner
-npm run app
+# run all application components (core, api worker, and job runner)
+npm run dev
 
 ## OR
 
-# run app core
-npm run app:core
+# run application core
+npm run dev:core
 
-# run app api worker
-npm run app:api
+# run application api worker
+npm run dev:api
 
-# run app job runner
-npm run app:job
+# run application job runner
+npm run dev:job
 
-# run app console
-npm run app:console
+# run application console
+npm run dev:console
 ```
 
 ### Testing

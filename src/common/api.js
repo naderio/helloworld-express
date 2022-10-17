@@ -11,11 +11,10 @@ import * as Errors from '~/common/errors';
 
 import Data from '~/common/data';
 
-import * as APP_CONFIG from '../../app-config';
-
 import { withAuthenticatedUser, withRoleRestriction } from '~/module/auth/auth.middleware';
 
 import { createLogger } from '~/common/logger';
+import * as APP_CONFIG from '../../app-config';
 
 const Logger = createLogger($filepath(__filename));
 

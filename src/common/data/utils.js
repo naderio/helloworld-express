@@ -8,9 +8,8 @@ import { v1 as uuidv1, v4 as uuidv4 } from 'uuid';
 
 import { EventEmitter } from '~/common/events';
 
-import * as DataMixin from './mixin';
-
 import { createLogger } from '~/common/logger';
+import * as DataMixin from './mixin';
 
 const Logger = createLogger($filepath(__filename));
 
@@ -96,16 +95,8 @@ export function prepareModelDefinition(Model) {
     result.graphqlOmitAttributes = [];
   }
 
-  const {
-    beforeCreate,
-    afterCreate,
-    beforeUpdate,
-    afterUpdate,
-    beforeDestroy,
-    afterDestroy,
-    beforeSave,
-    afterSave,
-  } = result;
+  const { beforeCreate, afterCreate, beforeUpdate, afterUpdate, beforeDestroy, afterDestroy, beforeSave, afterSave } =
+    result;
 
   if (beforeCreate) {
     events.on('beforeCreate', promisify(beforeCreate.bind(result)));
